@@ -5,6 +5,7 @@ import de.fhpotsdam.unfolding.UnfoldingMap;
 import de.fhpotsdam.unfolding.geo.Location;
 import de.fhpotsdam.unfolding.providers.AbstractMapProvider;
 import de.fhpotsdam.unfolding.providers.Google;
+import de.fhpotsdam.unfolding.providers.OpenStreetMap;
 import de.fhpotsdam.unfolding.providers.MBTilesMapProvider;
 import de.fhpotsdam.unfolding.utils.MapUtils;
 
@@ -47,6 +48,8 @@ public class HelloWorld extends PApplet
 		
 		// Select a map provider
 		AbstractMapProvider provider = new Google.GoogleTerrainProvider();
+		//let's change Map Provider:
+		AbstractMapProvider provider2 = new OpenStreetMap.OpenStreetMapProvider();
 		// Set a zoom level
 		int zoomLevel = 10;
 		
@@ -69,7 +72,7 @@ public class HelloWorld extends PApplet
 
 		// The next line zooms in and centers the map at 
 	    // 32.9 (latitude) and -117.2 (longitude)
-	    map1.zoomAndPanTo(zoomLevel, new Location(32.9f, -117.2f));
+	    map1.zoomAndPanTo(zoomLevel, new Location(32.9f, -117.2f)); //32.9f, -117.2f
 		
 		// This line makes the map interactive
 		MapUtils.createDefaultEventDispatcher(this, map1);
@@ -77,9 +80,9 @@ public class HelloWorld extends PApplet
 		// TODO: Add code here that creates map2 
 		// Then you'll modify draw() below
 		
-		map2 = new UnfoldingMap(this, 450, 50, 350, 500, provider);
+		map2 = new UnfoldingMap(this, 450, 50, 350, 500, provider2);
 		
-		map2.zoomAndPanTo(zoomLevel = 2, new Location(32.9f, -117.2f)); //59.9359f, 30.3137f
+		map2.zoomAndPanTo(zoomLevel = 10, new Location(59.9359f, 30.3137f)); //59.9359f, 30.3137f
 		
 		MapUtils.createDefaultEventDispatcher(this, map2);
 	}
